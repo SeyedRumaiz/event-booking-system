@@ -5,12 +5,14 @@ public class User {
     private String name;
     private final int age;
     private String email;
+    private static int totalUsers;
 
     public User(int ID, String name, int age, String email) {
         this.ID = ID;
         this.name = name;
         this.age = age;
         this.email = email;
+        totalUsers++;
     }
 
     public int getID() {
@@ -39,5 +41,9 @@ public class User {
 
     public void book(Event event) {
 
+    }
+
+    public static int getTotalUsers() {
+        return totalUsers;
     }
 }

@@ -5,12 +5,10 @@ import java.util.Objects;
 public class Event {
     private String name;
     private int availableSeats;
-    private double ticketPrice;
 
-    public Event(String name, int availableSeats, double ticketPrice) {
+    public Event(String name, int availableSeats) {
         this.name = name;
         this.availableSeats = availableSeats;
-        this.ticketPrice = ticketPrice;
     }
 
     public String getName() {
@@ -29,20 +27,11 @@ public class Event {
         this.availableSeats = availableSeats;
     }
 
-    public double getTicketPrice() {
-        return this.ticketPrice;
-    }
-
-    public void setTicketPrice(double ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
-
     @Override
     public String toString() {
         return "Event{" +
                 "name='" + name + '\'' +
                 ", availableSeats=" + availableSeats +
-                ", ticketPrice=" + ticketPrice +
                 '}';
     }
 
@@ -50,11 +39,11 @@ public class Event {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Event event)) return false;
-        return availableSeats == event.availableSeats && Double.compare(ticketPrice, event.ticketPrice) == 0 && Objects.equals(name, event.name);
+        return availableSeats == event.availableSeats && Objects.equals(name, event.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, availableSeats, ticketPrice);
+        return Objects.hash(name, availableSeats);
     }
 }
